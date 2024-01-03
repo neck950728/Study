@@ -7,7 +7,8 @@ import './index.css';
 // import App from './example/Event';
 // import App from './example/State';
 // import App from './example/Create';
-import App from './example/Update';
+// import App from './example/Update';
+import App from './example/Delete';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
