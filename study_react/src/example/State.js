@@ -36,9 +36,9 @@ function Article(props){
 
 function App() {
   /*
-    const _mode = useState("None");
-    const mode = _mode[0]; // index 0 : 상태 값인 "None"을 담고 있음
-    const setMode = _mode[1]; // index 1 : 상태 값을 변경할 때 사용하는 함수를 담고 있음
+    const _mode = useState("None"); // 초기 상태값을 "None"으로 지정
+    const mode = _mode[0]; // index 0 : 현재 상태값을 담고 있음
+    const setMode = _mode[1]; // index 1 : 상태값을 변경할 때 사용하는 함수를 담고 있음
   */
   const [mode, setMode] = useState("None"); // 축약형
   const [id, setId] = useState(null);
