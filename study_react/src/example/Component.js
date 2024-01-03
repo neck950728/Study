@@ -1,6 +1,4 @@
-// - Component -
-
-function Header(){ // 주의 : 함수명 첫 글자는 반드시 대문자로 지정
+function Header(){ // 주의 : 함수명(컴포넌트명) 첫 글자는 반드시 대문자로 지정
   return <header>
     <h1><a href="/">Web</a></h1>
   </header>
