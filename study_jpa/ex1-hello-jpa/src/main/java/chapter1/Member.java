@@ -1,9 +1,7 @@
-package hellojpa;
+package chapter1;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity // JPA의 관리 대상이 되기 위한 애너테이션(final, enum, interface, inner 클래스에는 사용할 수 없다.)
 // @Table(name = "USER") // 클래스명과 테이블명이 다를 경우, @Table 애너테이션을 통해 직접 지정해줄 수 있다.
