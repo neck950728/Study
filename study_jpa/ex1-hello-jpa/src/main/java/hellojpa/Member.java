@@ -12,7 +12,7 @@ public class Member {
     private Long id;
 
     // @Column(name = "username") // 마찬가지로 필드명과 컬럼명이 다른 경우, 지정 방법
-    // @Column(unique = true, length = 10) // 제약 조건, 크기 등 DDL 자동 생성 기능(persistence.xml - 'DDL 자동 생성 기능' 참고)에 사용되는 속성
+    // @Column(unique = true, length = 10) // 제약 조건, 크기 등 추가적인 정보를 DDL 자동 생성 기능에 전달하기 위한 속성들(더 다양한 속성은 chapter2 참고)
     private String name;
 
     // DB에 저장할 필드에 final 키워드를 사용하면 안 된다.

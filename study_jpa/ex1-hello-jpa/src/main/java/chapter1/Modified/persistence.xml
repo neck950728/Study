@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="hello">
+        <properties>
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" /> <!-- 어떤 DB의 문법을 사용할 것인지를 지정 -->
+
+            <!-- 옵션(Console 창에 쿼리문을 실행한 결과를 출력하기 위한 각종 설정들) -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+
+            <!-- https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21687 : 15분 22초 ~ 16분 42초 참고 -->
+            <property name="hibernate.jdbc.batch_size" value="10" />
+
+            <!--
+                - DDL 자동 생성 기능 -
+                ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21692 : 0분 0초 ~ 14분 42초 참고
+                <property name="hibernate.hbm2ddl.auto" value="create" />
+                <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+                <property name="hibernate.hbm2ddl.auto" value="update" />
+                <property name="hibernate.hbm2ddl.auto" value="validate" />
+            -->
+        </properties>
+    </persistence-unit>
+</persistence>
