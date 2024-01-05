@@ -13,6 +13,11 @@ public class Member {
     // @Column(name = "username") // 마찬가지로 필드명과 컬럼명이 다른 경우, 지정 방법
     private String name;
 
+    /*
+        참고로, JPA는 내부적으로 Reflection(쉽게 말해, 동적으로 객체를 생성함)을
+        사용하기 때문에 기본 생성자가 반드시 존재해야 한다.
+    */
+
     public Long getId() {
         return id;
     }
