@@ -27,7 +27,7 @@ public class JpaMain {
             /*
                 보다시피 Java의 Collection을 다루는 것처럼 굉장히 편리하다.
                 특히 수정할 때를 보면, 객체의 값만 변경했을 뿐인데 실제로 DB에 반영되는 것이 정말 신기하다.
-                ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21684 : 18분 22초 ~ 18분 55초 참고
+                ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21687 : 20분 36초 ~ 23분 10초 참고
             */
 
             /*

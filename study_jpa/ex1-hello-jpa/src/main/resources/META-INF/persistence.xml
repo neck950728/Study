@@ -17,6 +17,9 @@
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.use_sql_comments" value="true" />
             <!-- <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+
+            <!-- https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21687 : 15분 22초 ~ 16분 42초 참고 -->
+            <property name="hibernate.jdbc.batch_size" value="10" />
         </properties>
     </persistence-unit>
 </persistence>
