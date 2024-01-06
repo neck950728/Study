@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity // JPA의 관리 대상이 되기 위한 애너테이션(final, enum, interface, inner 클래스에는 사용할 수 없다.)
 public class Member {
-    @Id // JPA에게 내 Primary Key가 무엇인지 알려주기 위한 애너테이션
+    @Id
     private Long id;
 
     private String name;
