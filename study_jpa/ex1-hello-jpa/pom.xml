@@ -34,7 +34,7 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <!-- 설치한 H2 DB와 버전이 일치해야 함 -->
-            <version>2.2.224</version>
+            <version>1.4.199</version>
         </dependency>
     </dependencies>
 </project>
