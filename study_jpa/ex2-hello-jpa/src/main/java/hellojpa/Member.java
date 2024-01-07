@@ -19,6 +19,7 @@ public class Member {
         ㆍGenerationType.SEQUENCE : Sequence를 사용하는 DB(Oracle DB, PostgreSQL, DB2, H2 DB 등)인 경우 사용
         ㆍGenerationType.TABLE : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21694 12분 7초 ~ 15분 48초 참고
         ※IDENTITY 특이사항 : https://blog.naver.com/dngu_icdi/223314403168 참고
+        ※성능 관련 이야기 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21694 30분 37초 ~ 37분 30초
     */
     @Id // JPA에게 내 Primary Key가 무엇인지 알려주어야 하므로, @GeneratedValue 애너테이션을 사용한다 한들 필요하다.
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
