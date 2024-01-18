@@ -42,7 +42,7 @@ public class Member {
     */
 
     /*
-        순수 객체 상태를 고려해서, 항상 양쪽에 값을 세팅하는 것이 좋다.
+        연관 관계 편의 메서드(순수 객체 상태를 고려해서, 항상 양쪽에 값을 세팅하는 것이 좋다.)
         ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 : 3분 58초 ~ 17분 23초 참고
     */
     public void changeTeam(Team team){
