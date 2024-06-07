@@ -22,7 +22,7 @@ public class Member {
         쉽게 말해, "내 컬럼 중 'TEAM_ID'라는 컬럼을 사용하여 Team 테이블의 PK와 JOIN하겠다."라는 의미
     */
     @JoinColumn(name = "TEAM_ID")
-    private Team team; // 이전 위 방식과는 다르게 참조하는 방식임(외래키를 직접 다루지 않음)
+    private Team team; // 객체 지향적 모델링 : 이전 위 방식과는 다르게 참조하는 방식임(외래키를 직접 다루지 않음)
 
     public Long getId() {
         return id;

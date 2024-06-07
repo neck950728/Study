@@ -24,8 +24,8 @@ public class JpaMain {
             member.setTeam(team);
             em.persist(member);
 
-            em.flush(); // 영속성 컨텍스트의 변경 내용을 데이터베이스에 반영(더티 체킹 + 버퍼(쓰기 지연 저장소) 플러시), 1차 캐시는 그대로 유지됨
-            em.clear(); // 영속성 컨텍스트 초기화(당연히 1차 캐시도 초기화됨)
+            em.flush();
+            em.clear();
 
             Member findMember = em.find(Member.class, member.getId());
             // Team findTeam = em.find(Team.class, findMember.getTeamId());
