@@ -40,7 +40,7 @@ public class JpaMain {
             */
 
             /*
-                // 전체 조회 : JPA는 테이블이 아닌 Entity를 대상으로 하기 때문에 쿼리문이 약간 다르다.
+                // 전체 조회 : JPA는 테이블이 아닌 Entity를 대상으로 하기 때문에 쿼리문이 약간 다르다.(JPQL)
                 List<Member> members = em.createQuery("SELECT m FROM Member as m", Member.class).getResultList();
                 for(Member member : members){
                     System.out.println("id : " + member.getId());
@@ -53,6 +53,8 @@ public class JpaMain {
             member.setName("HelloJPA");
 
             // em.remove(member); // 삭제
+            // em.flush(); // 영속성 컨텍스트의 변경 내용을 데이터베이스에 반영(더티 체킹 + 버퍼(쓰기 지연 저장소) 플러시), 1차 캐시는 그대로 유지됨
+            // em.clear(); // 영속성 컨텍스트 초기화(당연히 1차 캐시도 초기화됨)
 
             tx.commit();
         }catch(Exception e) {
