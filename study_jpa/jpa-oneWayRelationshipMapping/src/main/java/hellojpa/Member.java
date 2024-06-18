@@ -17,7 +17,7 @@ public class Member {
     */
 
     @ManyToOne // 다대일(N:1) 관계 - Many : Member, One : Team
-    @JoinColumn(name = "TEAM_ID") // 외래키와 필드를 매핑(+연관 관계의 주인이 됨 : 외래키를 관리(쓰기 작업 가능)함)
+    @JoinColumn(name = "TEAM_ID") // https://blog.naver.com/dngu_icdi/223483001476 참고
     private Team team; // 객체 지향적 모델링 : 이전 위(15 ~ 16 Line) 방식과는 다르게 참조하는 방식임(외래키를 직접 다루지 않음)
 
     public Long getId() {
