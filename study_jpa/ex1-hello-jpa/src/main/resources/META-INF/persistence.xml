@@ -22,7 +22,8 @@
 
             <!--
                 - DDL 자동 생성 기능 -
-                ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21692 : 0분 0초 ~ 14분 42초 참고
+                https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21692 : 2분 44초 ~ 8분 21초 참고
+                ※주의사항 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21692 9분 21초 ~ 13분 14초 참고
                 <property name="hibernate.hbm2ddl.auto" value="create" />
                 <property name="hibernate.hbm2ddl.auto" value="create-drop" />
                 <property name="hibernate.hbm2ddl.auto" value="update" />
