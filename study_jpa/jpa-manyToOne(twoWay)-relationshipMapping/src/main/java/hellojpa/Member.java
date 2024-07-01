@@ -42,8 +42,9 @@ public class Member {
     */
 
     /*
-        연관 관계 편의 메서드(순수 객체 상태를 고려해서, 항상 양쪽에 값을 세팅하는 것이 좋다.)
-        ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 : 3분 58초 ~ 17분 23초 참고
+        연관 관계 편의 메서드
+        ※왜 굳이 양쪽에 모두 값을 세팅하는 걸까? : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 4분 20초 ~ 10분 59초 참고
+        ※연관 관계 편의 메서드는 어디에 정의해야 할까? : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 15분 21초 ~ 17분 57초 참고
     */
     public void changeTeam(Team team){
         this.team = team;
