@@ -14,10 +14,10 @@ public class Team {
 
     /*
         - 양방향 매핑 -
-        ㆍ객체와 테이블의 양방향 연관 관계 차이 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21697 9분 8초 ~ 13분 4초 참고
+        ㆍ객체와 테이블의 양방향 연관 관계 차이 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21697 9분 12초 ~ 13분 3초 참고
         ㆍ연관 관계의 주인(Feat. mappedBy) : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21697 13분 6초 ~ 23분 13초 참고
-        ㆍ양방향 매핑 시 주의사항 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 17분 59초 ~ 22분 41초 참고
-        ㆍ양방향 매핑, 꼭 필요한가? : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 22분 53초 ~ 27분 27초 참고
+        ㆍ양방향 매핑 시 주의사항 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 18분 ~ 22분 41초 참고
+        ㆍ양방향 매핑, 꼭 필요한가? : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21698 22분 57초 ~ 27분 27초 참고
     */
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
