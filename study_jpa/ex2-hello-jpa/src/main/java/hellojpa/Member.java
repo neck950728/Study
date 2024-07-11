@@ -29,7 +29,7 @@ public class Member {
 
     @Column(name = "name") // 마찬가지로 필드명과 컬럼명이 다를 경우, 지정 방법
     /*
-        @Column(nullable = false, length = 10, ...) : name 외 속성
+        @Column(nullable = false, length = 10, ...) ← name 외 속성
         DDL 자동 생성 기능 사용 시 제약 조건, 크기 등의 추가적인 정보를 전달
         ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21693 : 6분 ~ 10분 31초 참고
     */
