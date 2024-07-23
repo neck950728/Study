@@ -4,8 +4,10 @@ import javax.persistence.*;
 
 @Entity
 /*
-    Default : SINGLE_TABLE(단일 테이블)
-    ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21705 : 2분 50초 ~ 5분 16초 참고(장단점 : 30분 46초 ~ 37분 9초)
+    - 상속 관계 매핑 -
+    ㆍ전략 종류 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21705 : 2분 50초 ~ 5분 16초 참고
+    ㆍ전략별 장단점 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21705 30분 46초 ~ 37분 8초 참고
+    ㆍ언제, 어떤 전략을 사용하는 것이 효율적일까? : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21705 38분 17초 ~ 39분 20초 참고
 */
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn // DTYPE : 어떤 자식 테이블의 데이터인지 구분하기 위한 컬럼
