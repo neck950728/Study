@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 /*
     MappedSuperclass는 상속 관계 매핑 같은 것이 아니라,
-    단순히 자식 클래스에 공통으로 사용되는 매핑 정보를 '제공'해주는 역할만 한다.
+    단순히 자식 클래스에 공통으로 사용되는 매핑 정보를 '제공'해 주는 역할만 한다.
     ※Entity가 아니므로 테이블이 생성되지 않고, 당연히 조회 및 검색 또한 불가능하다.
 */
 @MappedSuperclass
