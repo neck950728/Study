@@ -23,7 +23,7 @@ public class Member {
           1. @SequenceGenerator : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21694 9분 50초 ~ 10분 30초 참고
           2. 성능 최적화 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21694 30분 37초 ~ 37분 30초 참고
     */
-    @Id // JPA에게 내 Primary Key가 무엇인지 알려주어야 하므로, @GeneratedValue 애너테이션을 사용한다 한들 필요하다.
+    @Id // JPA에게 Primary Key가 무엇인지 알려주어야 하므로, @GeneratedValue 애너테이션을 사용한다 한들 필요하다.
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
