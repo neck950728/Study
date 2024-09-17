@@ -28,8 +28,8 @@ public class JpaMain {
                 - 프록시 -
                 https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21708 : 12분 14초 ~ 16분 14초 참고
                 ※프록시 객체의 초기화가 발생하는 시점 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21708 10분 9초 ~ 11분 7초 참고
-                ┗ 당연한 이야기지만, 프록시 객체는 최초 한 번만 초기화된다.
-                ┗ 강제 초기화 방법(Hibernate 기준) : org.hibernate.Hibernate.initialize(프록시 객체);
+                 ┗ 당연한 이야기지만, 프록시 객체는 최초 한 번만 초기화된다.
+                 ┗ 강제 초기화 방법(Hibernate 기준) : org.hibernate.Hibernate.initialize(프록시 객체);
             */
             Member refMember = em.getReference(Member.class, member.getId());
             System.out.println("refMember.id : " + refMember.getId());
