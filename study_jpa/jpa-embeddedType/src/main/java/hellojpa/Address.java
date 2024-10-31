@@ -2,6 +2,7 @@ package hellojpa;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.util.Objects;
 
 /*
     - 임베디드 타입(사용자 정의 타입) -
@@ -66,4 +67,25 @@ public class Address {
             this.zipcode = zipcode;
         }
     */
+
+
+    /*
+        Primitive Type이 아닌 Reference Type의 값을 비교할 땐, 동일성(identity) 비교가 아닌 동등성(equivalence) 비교를 해야 하므로 equals 메서드를 적절히 재정의해 주어야 한다.
+        ※기본 equals 메서드는 동일성 비교를 한다.
+        ┗ 동일성 비교 : 인스턴스의 참조값을 비교
+        ┗ 동등성 비교 : 인스턴스의 값들을 비교
+    */
+    @Override
+    public boolean equals(Object o) {
+        if(this == o) return true;
+        if(o == null || getClass() != o.getClass()) return false;
+        Address address = (Address)o;
+        return Objects.equals(city, address.city) && Objects.equals(street, address.street) && Objects.equals(zipcode, address.zipcode);
+    }
+
+    // https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21715 : 5분 29초 ~ 5분 42초 참고
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, street, zipcode);
+    }
 }
