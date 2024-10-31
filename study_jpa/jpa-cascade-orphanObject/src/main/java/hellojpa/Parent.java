@@ -29,7 +29,6 @@ public class Parent {
         공통점은 부모 Entity 제거 시 자식 Entity도 함께 제거된다는 것이고,
         차이점은 CascadeType.REMOVE 같은 경우, 부모 Entity에서 자식 Entity를 제외하면(childList.remove(index))
         해당 자식 Entity가 단순히 컬렉션상에서만 제외될 뿐 제거되진 않지만(Delete 쿼리가 발생하지 않음),
-        ┗ 참고로 여기서 "어라, 더티 체킹으로 인해 변경 내용이 반영되지 않나?"라는 생각을 할 수도 있을 텐데, 더티 체킹은 Entity의 필드 값 자체가 변경된 경우에만 감지할 수 있다.
         orphanRemoval = true 같은 경우에는 제거된다는 차이가 있다.
 
         ㆍCascadeType.ALL + orphanRemoval = true
