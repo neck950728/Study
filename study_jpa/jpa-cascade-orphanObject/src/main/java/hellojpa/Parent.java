@@ -32,7 +32,7 @@ public class Parent {
         ┗ 참고로 여기서 "어라, 더티 체킹으로 인해 변경 내용이 반영되지 않나?"라는 생각을 할 수도 있을 텐데, 더티 체킹은 필드 값 자체가 변경된 경우에만 감지할 수 있다.
         orphanRemoval = true 같은 경우에는 제거된다는 차이가 있다.
 
-        ㆍCascadeType.REMOVE + orphanRemoval = true
+        ㆍCascadeType.ALL + orphanRemoval = true
         https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21710 : 20분 2초 ~ 22분 32초 참고
     */
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
