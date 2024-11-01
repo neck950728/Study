@@ -18,7 +18,7 @@ public class Parent {
 
 
         - orphanRemoval(고아 객체 제거) -
-        부모 Entity와 연관 관계가 끊어진(외래키 값이 NULL이 됨) 자식 Entity를 자동으로 제거한다.
+        부모 Entity와 연관 관계가 끊어진(외래키 값 : NULL) 자식 Entity를 자동으로 제거한다.
         ※cascade 옵션과 마찬가지로 소유자가 하나일 때만 사용하는 것이 좋다.
         ※@OneTo... 애너테이션에서만 동작한다.
          ┗ 참고 : One(1) = 부모, Many(N) = 자식
