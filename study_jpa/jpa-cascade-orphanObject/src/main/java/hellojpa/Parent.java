@@ -28,9 +28,9 @@ public class Parent {
         ㆍCascadeType.REMOVE vs orphanRemoval = true
         공통점은 부모 Entity 제거 시 자식 Entity도 함께 제거된다는 것이고,
         차이점은 CascadeType.REMOVE 같은 경우, 부모 Entity에서 자식 Entity를 제외하면(childList.remove(index))
-        해당 자식 Entity가 단순히 컬렉션상에서만 제외될 뿐 제거되진 않지만(Delete 쿼리가 발생하지 않음),
-        orphanRemoval = true 같은 경우에는 제거된다는 차이가 있다.
-
+        해당 자식 Entity는 단순히 컬렉션상에서만 제외될 뿐 제거되진 않지만(단, 부모 Entity와 연관 관계가 끊어졌기 때문에 이후 Dirty Checking에 의해 고아 객체가 됨),
+        orphanRemoval = true 같은 경우에는 함께 제거된다는 차이가 있다.
+        
         ㆍCascadeType.ALL + orphanRemoval = true
         https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21710 : 20분 2초 ~ 22분 32초 참고
     */
