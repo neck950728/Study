@@ -15,6 +15,7 @@ public class Team {
     /*
         결론부터 말하자면, 일대다(1:N) 연관 관계 매핑은 웬만하면 사용하지 않는다.
         ※https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21701 : 8분 2초 ~ 10분 15초 참고
+         ┗ 업데이트 쿼리가 발생하는 이유 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21701 5분 34초 ~ 6분 17초 참고
     */
     @OneToMany
     @JoinColumn(name = "TEAM_ID")
