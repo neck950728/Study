@@ -36,7 +36,8 @@ public class Member {
         // @CollectionTable(name = "ADDRESS_HISTORY", joinColumns = @JoinColumn(name = "MEMBER_ID"))
         // private List<Address> addressHistory = new ArrayList<>();
 
-        눈치가 빠른 사람이라면 JpaMain.java : '값 타입 컬렉션 수정'을 봤을 때 "값 타입 컬렉션은 웬만하면 사용하지 않는 편이 나을 것 같다."라는 점을 느꼈을 것이다.
+        눈치가 빠른 사람이라면 JpaMain.java - '값 타입 컬렉션 수정'을 봤을 때 "값 타입 컬렉션은 웬만하면 사용하지 않는 편이 나을 것 같다."라는 느낌을 받았을 것이다.
+        왜냐하면 각종 제약사항이 있고, 성능 저하(컬렉션 변동 시 매번 모두 제거 + 새로 추가)가 발생할 수 있기 때문이다.
         ※그럼, 언제 사용하는 거지? : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21716 40분 1초 ~ 41분 34초, 42분 32초 ~ 42분 58초 참고
 
         그래서 값 타입 컬렉션의 대안으로는 아래와 같은 방법을 사용한다고 한다.
