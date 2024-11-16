@@ -72,20 +72,21 @@ public class Address {
     /*
         Primitive Type이 아닌 Reference Type의 값을 비교할 땐, 동일성(identity) 비교가 아닌 동등성(equivalence) 비교를 해야 하므로 equals 메서드를 적절히 재정의해 주어야 한다.
         ※default equals 메서드는 동일성 비교를 한다.
-        ┗ 동일성 비교 : 인스턴스의 참조값을 비교
-        ┗ 동등성 비교 : 인스턴스의 값들을 비교
+　　      ┗ 동일성 비교 : 인스턴스의 참조값을 비교
+　　      ┗ 동등성 비교 : 인스턴스의 값들을 비교
+        ※equals, hashCode 메서드 자동 생성 시 참고사항 : https://photos.google.com/photo/AF1QipM04HmklmuqUUyvJ3A9JmXnVnddVeJruxQ7nDo1
     */
     @Override
     public boolean equals(Object o) {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         Address address = (Address)o;
-        return Objects.equals(city, address.city) && Objects.equals(street, address.street) && Objects.equals(zipcode, address.zipcode);
+        return Objects.equals(getCity(), address.getCity()) && Objects.equals(getStreet(), address.getStreet()) && Objects.equals(getZipcode(), address.getZipcode());
     }
 
     // https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21715 : 5분 29초 ~ 5분 42초 참고
     @Override
     public int hashCode() {
-        return Objects.hash(city, street, zipcode);
+        return Objects.hash(getCity(), getStreet(), getZipcode());
     }
 }
