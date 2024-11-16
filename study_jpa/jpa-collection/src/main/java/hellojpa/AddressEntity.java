@@ -40,11 +40,11 @@ public class AddressEntity {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         AddressEntity addressEntity = (AddressEntity)o;
-        return Objects.equals(id, addressEntity.id);
+        return Objects.equals(getId(), addressEntity.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 }
