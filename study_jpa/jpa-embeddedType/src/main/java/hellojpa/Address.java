@@ -74,7 +74,8 @@ public class Address {
         ※default equals 메서드는 동일성 비교를 한다.
 　　      ┗ 동일성 비교 : 인스턴스의 참조값을 비교
 　　      ┗ 동등성 비교 : 인스턴스의 값들을 비교
-        ※equals, hashCode 메서드 자동 생성 시 참고사항 : https://photos.google.com/photo/AF1QipM04HmklmuqUUyvJ3A9JmXnVnddVeJruxQ7nDo1
+        ※equals, hashCode 메서드 자동 생성 시 참고사항 : 'Use getters...' 체크
+　　      ┗ https://photos.google.com/photo/AF1QipM04HmklmuqUUyvJ3A9JmXnVnddVeJruxQ7nDo1 참고
     */
     @Override
     public boolean equals(Object o) {
