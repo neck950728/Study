@@ -17,13 +17,13 @@
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.use_sql_comments" value="true" />
 
-            <!-- https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21687 : 15분 22초 ~ 16분 42초 참고 -->
+            <!-- https://inf.run/mE44y(15분 22초 ~ 16분 42초) 참고 -->
             <property name="hibernate.jdbc.batch_size" value="10" />
 
             <!--
                 - DDL 자동 생성 기능 -
-                https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21692 : 2분 44초 ~ 8분 21초 참고
-                ※주의사항 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21692 9분 21초 ~ 13분 14초 참고
+                https://inf.run/opHzs(2분 44초 ~ 8분 21초) 참고
+                ※주의사항 : https://inf.run/opHzs(9분 21초 ~ 13분 14초) 참고
                 <property name="hibernate.hbm2ddl.auto" value="create" />
                 <property name="hibernate.hbm2ddl.auto" value="create-drop" />
                 <property name="hibernate.hbm2ddl.auto" value="update" />

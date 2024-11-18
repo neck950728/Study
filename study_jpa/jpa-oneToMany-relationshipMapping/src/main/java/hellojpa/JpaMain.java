@@ -21,7 +21,7 @@ public class JpaMain {
 
             Team team = new Team();
             team.setName("TeamA");
-            team.getMembers().add(member); // https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21701 : 5분 34초 ~ 7분 55초 참고
+            team.getMembers().add(member); // https://inf.run/gkxhf(5분 34초 ~ 7분 55초) 참고
             em.persist(team);
 
             tx.commit();

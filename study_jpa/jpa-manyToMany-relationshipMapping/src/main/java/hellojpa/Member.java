@@ -14,7 +14,7 @@ public class Member {
     private String username;
 
     /*
-        https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21703 : 1분 9초 ~ 3분 2초 참고
+        https://inf.run/jFaz5(1분 9초 ~ 3분 2초) 참고
         ※정확히는 2개의 테이블만으로도 다대다 관계를 표현할 수 있긴 하지만, 데이터 중복, 유연성 부족 등 많은 문제점이 발생하게 된다.
 　　      즉, 정규화 원칙에 위배되기도 하고, 상당히 비효율적이라 굳이 이 방식을 사용할 이유가 없다.
 

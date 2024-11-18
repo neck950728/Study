@@ -26,8 +26,8 @@ public class JpaMain {
             // Member findMember = em.find(Member.class, member.getId());
             /*
                 - 프록시 -
-                https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21708 : 12분 14초 ~ 16분 14초 참고
-                ※프록시 객체의 초기화가 발생하는 시점 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21708 10분 9초 ~ 11분 7초 참고
+                https://inf.run/dFoRK(12분 14초 ~ 16분 14초) 참고
+                ※프록시 객체의 초기화가 발생하는 시점 : https://inf.run/dFoRK(10분 9초 ~ 11분 7초) 참고
                  ┗ 당연한 이야기지만, 프록시 객체는 최초 한 번만 초기화된다.
                  ┗ 강제 초기화 방법(Hibernate 기준) : org.hibernate.Hibernate.initialize(프록시 객체);
             */
@@ -51,7 +51,7 @@ public class JpaMain {
             em.flush();
             em.clear();
 
-            // 타입 비교 시 주의사항 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21708 19분 26초 ~ 24분 31초 참고
+            // 타입 비교 시 주의사항 : https://inf.run/dFoRK(19분 26초 ~ 24분 31초) 참고
             member1 = em.find(Member.class, member1.getId());
             member2 = em.getReference(Member.class, member2.getId());
             System.out.println("member1 타입 == member2 타입 : " + (member1.getClass() == member2.getClass())); // 결과 : false
@@ -63,7 +63,7 @@ public class JpaMain {
             /*
                 영속성 컨텍스트에 대상 Entity가 이미 존재하는 경우, getReference 메서드를 호출해도 프록시 객체가 아닌 Entity가 반환된다.
                 반대의 경우(영속성 컨텍스트에 대상 프록시 객체가 이미 존재하는 경우), 마찬가지로 find 메서드를 호출해도 Entity가 아닌 프록시 객체가 반환된다.
-                ※이유 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21708 27분 23초 ~ 28분 56초, 32분 7초 ~ 34분 26초 참고
+                ※이유 : https://inf.run/dFoRK(27분 23초 ~ 28분 56초, 32분 7초 ~ 34분 26초) 참고
             */
 
             member1 = em.find(Member.class, member1.getId());

@@ -32,7 +32,7 @@ public class Parent {
         orphanRemoval = true 같은 경우에는 함께 제거된다는 차이가 있다.
         
         ㆍCascadeType.ALL + orphanRemoval = true
-        https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21710 : 20분 2초 ~ 22분 32초 참고
+        https://inf.run/Dakcu(20분 2초 ~ 22분 32초) 참고
     */
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Child> childList = new ArrayList<>();

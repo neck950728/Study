@@ -49,19 +49,19 @@ public class JpaMain {
             /*
                 - 값 타입 컬렉션 수정 -
                 그런데 addressHistories(요소 : 임베디드 타입)는 favoriteFoods(요소 : String)랑 다르게, 왜 모두 제거한 다음 새로 추가하는 방식으로 동작하는 걸까?
-                ┗ https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21716 : 27분 40초 ~ 28분 39초 참고
+                ┗ https://inf.run/5PeGx(27분 40초 ~ 28분 39초) 참고
 
                 그 이유는 아래 '값 타입 컬렉션의 제약사항' 중 1 ~ 3번 문항과 관련이 있는 것 같다.
                 요약하자면, 값 타입은 고유한 식별자가 존재하지 않으므로, JPA가 값 타입 컬렉션의 개별 요소를 추적할 수 없고, 변화를 비교할 기준이 부족하기 때문이다.
                 반면, String, Integer 등과 같이 일반적인 타입은 단일 값을 가지므로, 그 자체로 비교가 가능했던 것이다.
-                ※값 타입 컬렉션의 제약사항 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21716 29분 15초 ~ 34분 10초 참고
+                ※값 타입 컬렉션의 제약사항 : https://inf.run/5PeGx(29분 15초 ~ 34분 10초) 참고
             */
 
             favoriteFoods.remove("치킨");
             favoriteFoods.add("초밥");
 
             /*
-                // 컬렉션.remove(Object) 동작 방식 참고 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21716 24분 39초 ~ 25분 19초 참고
+                // 컬렉션.remove(Object) 동작 방식 참고 : https://inf.run/5PeGx(24분 39초 ~ 25분 19초)
                 addressHistories.remove(new Address("old_city1", "old_street1", "old_zipcode1"));
                 addressHistories.add(new Address("new_city", "new_street", "new_zipcode"));
             */

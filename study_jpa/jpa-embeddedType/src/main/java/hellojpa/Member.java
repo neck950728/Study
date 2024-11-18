@@ -29,7 +29,7 @@ public class Member {
     private Address homeAddress;
 
     @Embedded
-    @AttributeOverrides({ // https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21713 : 16분 1초 ~ 16분 48초 참고
+    @AttributeOverrides({ // https://inf.run/6XCw3(16분 1초 ~ 16분 48초) 참고
             @AttributeOverride(name = "city",
                     column = @Column(name = "WORK_CITY")),
             @AttributeOverride(name = "street",

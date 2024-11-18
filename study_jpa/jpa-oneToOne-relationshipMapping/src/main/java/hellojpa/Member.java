@@ -15,8 +15,8 @@ public class Member {
         외래키는 주 테이블(더 자주 사용되는 테이블)에 두는 것이 개발자 입장에서는 더 유리하다.
         하지만 외래키에 NULL 값을 허용해야 하므로 DBA 입장에서는 마음에 들지 않을 것이다.
         그러므로 DBA와 충분히 상의 후 결정해야 한다.
-        ※자세한 내용 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21702 8분 54초 ~ 12분 45초 참고
-        ※외래키 위치에 따른 장단점 : https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21702 15분 5초 ~ 18분 30초 참고
+        ※자세한 내용 : https://inf.run/Lp63Y(8분 54초 ~ 12분 45초) 참고
+        ※외래키 위치에 따른 장단점 : https://inf.run/Lp63Y(15분 5초 ~ 18분 30초) 참고
     */
     @OneToOne
     @JoinColumn(name = "LOCKER_ID")

@@ -6,12 +6,12 @@ import java.time.LocalDateTime;
 /*
     결론부터 말하자면, 다대다(N:M) 연관 관계 매핑은 사용하지 않는 것이 좋다.
     대신, 이처럼 연결 테이블을 Entity로 승격시킨 후 1:N, N:1 관계로 풀어서 사용하면 된다.
-    https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21703 : 6분 14초 ~ 8분 1초 참고
+    ※https://inf.run/jFaz5(6분 14초 ~ 8분 1초) 참고
 */
 @Entity
 public class MemberProduct {
     @Id @GeneratedValue
-    private Long id; // https://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21703 : 11분 53초 ~ 13분 16초 참고
+    private Long id; // https://inf.run/jFaz5(11분 53초 ~ 13분 16초) 참고
 
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")

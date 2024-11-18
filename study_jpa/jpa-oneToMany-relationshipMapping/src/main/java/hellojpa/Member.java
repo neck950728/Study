@@ -13,7 +13,7 @@ public class Member {
 
     /*
         - 일대다(1:N) 양방향 매핑 -
-        ㆍhttps://www.inflearn.com/course/lecture?courseSlug=ORM-JPA-Basic&unitId=21701 : 14분 18초 ~ 18분 2초 참고
+        ㆍhttps://inf.run/gkxhf(14분 18초 ~ 18분 2초) 참고
         ㆍhttps://blog.naver.com/dngu_icdi/223483002064 참고
     */
     @ManyToOne
