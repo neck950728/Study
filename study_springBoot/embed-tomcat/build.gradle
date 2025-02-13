@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // 스프링 MVC 라이브러리
+    implementation 'org.springframework:spring-webmvc:6.0.4'
+
+    // 내장 Tomcat 라이브러리
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.5'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+/*
+    - 일반 Jar 생성 -
+    Jar의 문제점은 다른 Jar, 즉 외부 라이브러리를 포함할 수 없다는 것이다.
+    그래서 나온 대안이 아래 Fat Jar이다.
+*/
+task buildJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
+    }
+
+    with jar
+}
+
+/*
+    - Fat(뚱뚱한) Jar 생성 -
+    Jar의 문제점을 해결하기 위해 약간의 편법을 사용한 방식이다.
+    간단히 말하자면, Jar를 포함할 수 없으니 대신 Jar를 풀어서 나온 class 파일들을 포함한 방식이다.
+    하지만 여전히 다음과 같은 문제점들이 있다.
+    ㆍJar가 풀려있다 보니 어떤 라이브러리가 포함되어 있는 건지 확인하기 어렵다.
+    ㆍclass 파일이 중복되는 경우(내용은 다르지만, 파일의 경로와 이름이 동일한 경우), 하나는 무시되어 예상치 못한 동작이나 버그가 발생할 수 있다.
+*/
+task buildFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.WARN
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+/*
+    - Executable(실행 가능) Jar -
+    Spring Boot는 이러한 문제점들을 해결하기 위해 Executable Jar라는 것을 새롭게 정의하였다.
+    즉, Jar 내부에 다른 Jar를 포함할 수 있도록 특별한 구조의 Jar를 새롭게 만들었다는 것이다.
+    ※자세한 내용 : https://inf.run/1NAtA(2분 35초 ~ 7분 23초) 참고
+    ※그런데 이 구조 왠지 낯이 익은데? : https://inf.run/1NAtA(9분 32초 ~ 10분 19초) 참고
+    ※정리 및 참고 : https://inf.run/1NAtA(10분 20초 ~ 11분 27초) 참고
+*/
