@@ -1,0 +1,53 @@
+지금까지 배운 방식들은 애플리케이션을 실행할 때마다 매번 다수의 설정값을 입력해 주어야 했다.
+지금이야 몇 개 되지 않아 괜찮지만, 설정값이 늘어날수록 번거로워질 것이다.
+그래서 나온 대안이 바로, 설정값을 파일에 저장하여 관리하는 방식이다.
+그중에서도 .properties(또는 .yml) 파일은 Key-value 형식으로 데이터를 저장하기 때문에 설정값을 관리하기에 아주 적합하다.
+또한 6번(Integration) 내용을 배울 때 봤다시피, 이 파일의 설정값 또한 Environment를 통해 조회할 수 있다.
+덕분에 파일의 내용을 읽어오는 코드를 작성할 필요도 없다.
+
+
+
+● 외부 파일 ●
+1. JAR 파일과 동일한 위치에 설정 파일 만들기 : application.properties
+　 ※default 이름(스프링 부트가 인식할 수 있는 이름) : application
+　 ※프로필 사용 가능 : application-{profile}.properties
+2. 설정값 입력
+   ┗ my_url=local.db.com
+     my_username=local_user
+     my_password=local_pw
+3. 실행 : java -jar external.jar
+         ※프로필 사용 시 : java -jar external.jar --spring.profiles.active={profile}
+        　 ┗ 자세한 내용 : 아래 '내부 파일(분리) - 프로필 선택' 참고
+4. 결과 : 6번(Integration) 코드, 즉 Environment를 통해 설정값들이 조회된 것을 확인할 수 있다.
+
+(단점)
+외부 파일 방식은 설정 파일이 프로젝트와 분리되어 있다.
+그래서 Git과 같은 버전 관리 시스템에 포함되지 않아, 변경 이력을 추적하기 어렵다.
+즉, 설정값이 언제, 왜 변경되었는지 알 수 없고, 그로 인해 코드 동작에 미친 영향을 파악하기 어렵다.
+
+
+
+● 내부 파일(분리) ●
+src/main/resources/application-{profile}.properties
+┗ 개발 환경 : application-dev.properties
+┗ 운영 환경 : application-prod.properties
+
+(프로필 선택)
+ㆍJava 시스템 속성 : java -Dspring.profiles.active={profile} -jar external.jar
+ㆍCommandLine 옵션 인수 : java -jar external.jar --spring.profiles.active={profile}
+ㆍ설정 파일(application.properties) : spring.profiles.active={profile}
+※당연히 OS 환경 변수로도 선택 가능하다.
+※여러 개 선택할 수도 있다.
+　┗ ex) spring.profiles.active=dev,prod
+
+
+
+● 내부 파일(병합) ●
+src/main/resources/application.properties
+※.properties 파일에서의 구분자는 #--- 또는 !---이고, .yml 파일에서의 구분자는 ---이다.
+※주의사항 : https://inf.run/RGqpY(4분 3초 ~ 4분 32초) 참고
+※우선순위 : 위에서 아래 순으로
+           ┗ https://inf.run/5sEU3(6분 28초 ~ 7분 1초, 9분 ~ 9분 51초) 참고
+
+(프로필 선택)
+위와 동일
