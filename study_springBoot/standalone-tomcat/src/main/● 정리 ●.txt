@@ -1,0 +1,6 @@
+- 예제 동작 과정 -
+서블릿 컨테이너 초기화(MyContainerInit...)  →  애플리케이션 초기화(AppInit...)  →  서블릿 등록
+
+(참고)
+ㆍ서블릿 컨테이너 초기화 인터페이스 구현체(MyContainerInit...) 등록 : src\main\resources\META-INF\services\jakarta.servlet.ServletContainerInitializer
+ㆍ설정 파일 : build.gradle
