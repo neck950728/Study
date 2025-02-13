@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.2'
+    id 'io.spring.dependency-management' version '1.1.0'
+    // id "com.gorylenko.gradle-git-properties" version "2.4.1" // Git 정보 노출 : https://inf.run/Y28aw(5분 37초 ~ 6분 3초, 7분 21초 ~ 9분 34초) 참고
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator' // Actuator 라이브러리
+    implementation 'io.micrometer:micrometer-registry-prometheus' // https://inf.run/Zo1sS(3분 24초 ~ 4분 19초) 참고
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // 테스트 코드에서도 Lombok 사용
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// 빌드 정보 노출 : https://inf.run/Y28aw(4분 32초 ~ 5분 24초) 참고
+springBoot {
+    buildInfo()
+}

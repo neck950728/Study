@@ -1,0 +1,56 @@
+#엔드포인트 자세한 내용 : ReadMe.txt 참고
+management:
+  #Actuator의 엔드포인트 정보가 외부에 노출되는 것은 보안상 좋지 않다.
+  #대안으로는 포트를 분리하는 방법이 있는데, 즉 Actuator의 포트를 별도로 지정하는 것이다.
+  #기존 포트 8080은 열어두고(외부에서 접근 가능), Actuator 포트 9292은 열지 않고 내부에서만 접근 가능하도록 하는 방법이다.
+  #만약 포트를 분리할 수 없는 상황이라면? : https://inf.run/ADtvo(3분 34초 ~ 4분 21초) 참고
+  server:
+    #port: 9292
+  #info도 엔드포인트인데, 왜 endpoint 하위가 아닌 management 하위에서 설정하는 걸까? : http://naver.me/xFLZE7bZ 참고
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env: #https://inf.run/Y28aw(3분 36초 ~ 4분 26초) 참고
+      enabled: true
+    #빌드 및 Git 정보 노출:
+      #build.gradle 참고
+    #HTTP 요청/응답 history 노출:
+      #src/main/java/hello/ActuatorApplication.java 참고
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      #show-details: always #health 정보 자세히 보기
+      show-components: always #health 정보 간략하게(결과만) 보기
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+
+
+info:
+  app:
+    name: actuator
+    version: 0.0.1
+# + java -jar actuator.jar --info.app.administrator=Kmj
+
+
+
+#https://inf.run/tFAfY(2분 53초 ~ 4분 24초) 참고
+#실시간 로그 레벨 변경 방법 : https://inf.run/tFAfY(6분 43초 ~ 9분 26초) 참고
+#참고로 아래 로그 레벨 설정은 스프링 부트에서 기본적으로 제공하는 것이지, Actuator와는 무관하다.
+logging:
+  level:
+    hello.controller: debug
+
+
+
+#Tomcat 메트릭 모두 활성화 : https://inf.run/KCJ2Z(11분 14초 ~ 12분 37초) 참고
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true
