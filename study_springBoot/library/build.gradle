@@ -1,0 +1,103 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.2'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'hello'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+/*
+    - 스프링 부트가 사용하는 버전 대신 다른 버전 사용하기 -
+    1. implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.4'
+    2. ext['tomcat.version'] = '10.1.4'
+
+    물론 1번 방법으로 버전을 변경해도 되긴 하지만, 이 경우 오직 tomcat-embed-core의 버전만 변경된다.
+    tomcat-embed-core뿐만 아니라 tomcat-embed-el, tomcat-embed-websocket 등
+    Tomcat과 관련된 라이브러리들의 버전을 한 번에 변경하려면 2번 방법으로 버전을 변경해야 한다.
+
+    여기서 tomcat.version을 Version Property라고 하는데, 이것은 마치 변수와 유사한 개념이다.
+    예를 들어, Tomcat과 관련된 라이브러리들은 모두 Tomcat과 동일한 버전을 사용할 텐데,
+    이때 버전을 하드코딩하면 추후에 유지보수가 힘들기 때문에 Version Property를 사용하는 것이다.
+    ┗ 즉, tomcat.version은 스프링 부트에서 사용하는 Tomcat에 대한 Version Property이고,
+      이것의 버전을 재설정해 주면 Tomcat과 관련된 라이브러리들의 버전이 함께 변경된다.
+    ※Version Property 목록 : https://docs.spring.io/spring-boot/appendix/dependency-versions/properties.html
+*/
+// ext['tomcat.version'] = '10.1.4'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    /*
+        1. 라이브러리 직접 관리
+        과거에는 이처럼 어떤 라이브러리가 필요한지, 그리고 버전을 선택할 때는 호환성 문제도 고려해야 했다.
+
+        implementation 'org.springframework:spring-webmvc:6.0.4'
+
+        implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.5'
+
+        implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+
+        implementation 'org.springframework.boot:spring-boot:3.0.2'
+        implementation 'org.springframework.boot:spring-boot-autoconfigure:3.0.2'
+
+        implementation 'ch.qos.logback:logback-classic:1.4.5'
+        implementation 'org.apache.logging.log4j:log4j-to-slf4j:2.19.0'
+        implementation 'org.slf4j:jul-to-slf4j:2.0.6'
+
+        implementation 'org.yaml:snakeyaml:1.33'
+    */
+
+    /*
+        2. 스프링 부트 - 라이브러리 버전 관리
+        스프링 부트가 수많은 라이브러리의 버전을 개발자 대신 관리해 준다.
+        즉, 개발자는 이제 어떤 라이브러리가 필요한지에 대한 고민만 하면 된다.
+        ※이게 가능한 이유는 io.spring.dependency-management 플러그인 덕분이다.
+　        ┗ 자세한 내용 : https://inf.run/mkWdd(2분 29초 ~ 6분 7초) 참고
+        ※아쉽게도 다음과 같은 경우에는 이전처럼 버전을 직접 명시해 주어야 한다.
+　        ┗ ㆍ스프링 부트가 관리하지 않는 라이브러리(잘 알려지지 않은 라이브러리)  →  관리하는 라이브러리 목록 : https://docs.spring.io/spring-boot/appendix/dependency-versions/coordinates.html
+　          ㆍ스프링 부트가 선택한 버전에 문제가 있어, 다른 버전을 사용해야 하는 경우(아주 가끔 이런 경우가 있음)
+
+        implementation 'org.springframework:spring-webmvc'
+
+        implementation 'org.apache.tomcat.embed:tomcat-embed-core'
+
+        implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+        implementation 'org.springframework.boot:spring-boot'
+        implementation 'org.springframework.boot:spring-boot-autoconfigure'
+
+        implementation 'ch.qos.logback:logback-classic'
+        implementation 'org.apache.logging.log4j:log4j-to-slf4j'
+        implementation 'org.slf4j:jul-to-slf4j'
+
+        implementation 'org.yaml:snakeyaml'
+    */
+
+    /*
+        3. 스프링 부트 스타터
+        스프링 부트가 이젠 버전뿐만 아니라 어떤 라이브러리가 필요한지에 대한 고민까지 덜어준다.
+        예를 들어, spring-boot-starter-web은 웹 프로젝트에 필요한 라이브러리 묶음을 제공하는데,
+        즉 이 스타터 하나만 사용하면 Spring Web MVC, Tomcat, JSON 등 일반적으로 많이 사용하는 대중적인 라이브러리들이 한 번에 포함된다.
+        ※스타터 목록 : https://docs.spring.io/spring-boot/reference/using/build-systems.html#using.build-systems.starters
+        ※스타터 명명 규칙
+　　　　   ┗ ㆍ공식 : spring-boot-starter-*  →  ex) spring-boot-starter-web
+　　　　     ㆍ비공식 : *-spring-boot-starter  →  ex) mybatis-spring-boot-starter
+　　　　     ※비공식 스타터란 스프링 부트에서 공식적으로 제공하는 스타터가 아닌, 제삼자가 제공하는 스타터를 의미한다.
+        ※만약 특정 라이브러리의 버전을 변경하고 싶다면, 위의 '스프링 부트가 사용하는 버전 대신 다른 버전 사용하기'를 참고하길 바란다.
+    */
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
