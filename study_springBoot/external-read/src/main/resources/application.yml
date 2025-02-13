@@ -1,0 +1,66 @@
+#설정 파일에서는 카멜 표기법이 아닌, 대시를 사용하는 케밥 표기법을 권장한다고 한다.
+#.properties, .yml 파일이 둘 다 존재하면 .properties 파일이 우선권을 가진다고 한다.
+#스프링은 .yml 파일을 읽을 때 내부적으로 .properties 파일처럼 구조를 변환하여 읽는다고 한다.
+
+# ● .properties ●
+#my.datasource.url=local.db.com
+#my.datasource.username=local_user
+#my.datasource.password=local_pw
+#my.datasource.etc.max-connection=100
+#my.datasource.etc.timeout=5000ms
+#my.datasource.etc.options=ADMIN,CACHE
+#---
+#spring.config.activate.on-profile=dev
+#my.datasource.url=dev.db.com
+#my.datasource.username=dev_user
+#my.datasource.password=dev_pw
+#my.datasource.etc.max-connection=100
+#my.datasource.etc.timeout=5000ms
+#my.datasource.etc.options=DEV,CACHE
+#---
+#spring.config.activate.on-profile=prod
+#my.datasource.url=prod.db.com
+#my.datasource.username=prod_user
+#my.datasource.password=prod_pw
+#my.datasource.etc.max-connection=100
+#my.datasource.etc.timeout=5000ms
+#my.datasource.etc.options=PROD,CACHE
+
+# ● .yml ●
+my:
+  datasource:
+    url: local.db.com
+    username: local_user
+    password: local_pw
+    etc:
+      max-connection: 100
+      timeout: 5000ms
+      options: ADMIN,CACHE
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+my:
+  datasource:
+    url: dev.db.com
+    username: dev_user
+    password: dev_pw
+    etc:
+      max-connection: 100
+      timeout: 5000ms
+      options: DEV,CACHE
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+my:
+  datasource:
+    url: prod.db.com
+    username: prod_user
+    password: prod_pw
+    etc:
+      max-connection: 100
+      timeout: 5000ms
+      options: PROD,CACHE
