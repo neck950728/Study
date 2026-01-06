@@ -30,7 +30,8 @@
         }
 
         function TOC() {
-          let state = store.getState();
+          const state = store.getState();
+
           let i = 0;
           let liTags = '';
           while(i < state.contents.length) {
@@ -38,7 +39,7 @@
               <li>
                 <a href="${state.contents[i].id}" onclick="
                   event.preventDefault();
-                  let action = {type:'SELECT', id:${state.contents[i].id}};
+                  const action = {type:'SELECT', id:${state.contents[i].id}};
                   store.dispatch(action);
                 ">
                   ${state.contents[i].title}
@@ -76,14 +77,14 @@
         }
 
         function article() {
-          let state = store.getState();
+          const state = store.getState();
           if(state.mode === 'create') {
             document.querySelector('#content').innerHTML = `
               <article>
                 <form onsubmit="
                   event.preventDefault();
-                  let title_ = this.title.value;
-                  let desc_ = this.desc.value;
+                  const title_ = this.title.value;
+                  const desc_ = this.desc.value;
                   store.dispatch({
                     type:'CREATE',
                     title:title_,
@@ -126,7 +127,7 @@
         }
 
         function reducer(state, action) {
-          if(state === undefined) { // default
+          if(state === undefined) {
             return {
               mode:'welcome',
               selectedId:1,
@@ -142,8 +143,8 @@
           if(action.type === 'SELECT') {
             newState = {...state, mode:'read', selectedId:action.id};
           }else if(action.type === 'CREATE') {
-            let maxId_ = state.maxId + 1;
-            let newContent = [...state.contents, {id:maxId_, title:action.title, desc:action.desc}];
+            const maxId_ = state.maxId + 1;
+            const newContent = [...state.contents, {id:maxId_, title:action.title, desc:action.desc}];
             newState = {...state, mode:'read', maxId:maxId_, contents:newContent};
           }else if(action.type === 'DELETE') {
             let newContents = [];
@@ -165,7 +166,12 @@
           return newState;
         }
 
-        let store = Redux.createStore(reducer);
+        /*
+          Redux는 초기 state를 구성하기 위해, store 생성 시 reducer를 내부적으로 최초 한 번 실행한다.
+          (처음에는 당연히 state가 존재하지 않기 때문에 state의 값은 undefined이다.)
+        */
+        const store = Redux.createStore(reducer);
+
         store.subscribe(article);
         store.subscribe(TOC);
 
