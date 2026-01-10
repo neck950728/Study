@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequiredArgsConstructor // http://naver.me/FmfPO0EM 참고
+@RequiredArgsConstructor // https://naver.me/5FE1Fdn5 참고
 public class MemoryController {
     private final MemoryFinder memoryFinder;
 
