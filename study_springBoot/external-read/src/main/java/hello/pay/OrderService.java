@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor // http://naver.me/FmfPO0EM 참고
+@RequiredArgsConstructor // https://naver.me/5FE1Fdn5 참고
 public class OrderService {
     private final PayClient payClient;
 

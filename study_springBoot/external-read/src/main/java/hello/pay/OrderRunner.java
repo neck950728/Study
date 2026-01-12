@@ -8,7 +8,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // http://naver.me/FmfPO0EM 참고
+@RequiredArgsConstructor // https://naver.me/5FE1Fdn5 참고
 public class OrderRunner implements ApplicationRunner {
     private static final Logger log = LoggerFactory.getLogger(OrderRunner.class);
     private final OrderService orderService;
