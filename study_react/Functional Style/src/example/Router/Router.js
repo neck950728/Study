@@ -17,6 +17,30 @@ var contents = [
 ];
 
 function Topic(){
+// function Topic(props){
+  // var topicId = props.match.params.topicId;
+
+  /*
+    ex) <Route path="/topics/:topicId" component={Topic} />
+    React Router v5까지는 Route가 컴포넌트를 생성할 때 내부적으로 라우터 관련 객체를 props에 주입해 줬었다.
+    그리고 props를 통해 props.match / props.history / props.location과 같이 꺼내 사용할 수 있었다.
+    하지만 v6부터는 더 이상 주입해 주지 않는다고 한다.
+    그 이유는 설계 철학이 다음과 바뀌었기 때문이다.
+
+    ✨ v6 설계 철학 ✨
+    - 컴포넌트는 라우터에 의존하지 않아야 한다.
+    - 암묵적으로 주입되던 라우터 props를 제거하고, 필요한 정보는 Hook을 통해 명시적으로 가져오도록 한다.
+    - API를 Hook 중심으로 통일하여 사용 패턴을 단순화한다.
+    - 컴포넌트의 재사용성과 테스트 용이성을 높인다.
+    - TypeScript 친화적인 구조를 제공한다.
+
+    ❓ 그럼, 이제 어떻게 사용해야 하지
+    - props.match.params  →  useParams()
+    - props.history  →  useNavigate()
+    - props.location  →  useLocation()
+    ※props.match : https://naver.me/5R4uuI5o 참고
+  */
+
   var params = useParams();
   console.log(params);
 
