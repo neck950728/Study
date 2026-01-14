@@ -7,7 +7,10 @@ function Header(props){
 function Nav(props){
   const list = [];
   for(const topic of props.topics){
-    // https://www.youtube.com/watch?v=t9e3hMJ_s-c&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=5 : 9분 31초 ~ 11분 19초 참고
+    /*
+      - https://www.youtube.com/watch?v=t9e3hMJ_s-c&list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7&index=5 : 9분 31초 ~ 11분 19초 참고
+      - https://drive.google.com/file/d/1zUmbmY_ZIlKwhvWDFG0YUw1NNmT8wNhG 참고
+    */
     list.push(<li key={topic.id}><a href={"/read/" + topic.id}>{topic.title}</a></li>);
   }
 
