@@ -18,7 +18,7 @@ var contents = [
 
 function Topic(){
 // function Topic(props){
-  // var topicId = props.match.params.topicId;
+  // var params = props.match.params;
 
   /*
     ex) <Route path="/topics/:topicId" component={Topic} />
