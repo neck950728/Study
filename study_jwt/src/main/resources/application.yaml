@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jwt?serverTimezone=Asia/Seoul
+    username: study
+    password: 950728
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+jwt:
+  secret: 비밀! #${JWT_SECRET}
+  expiration-time: 300000 #5분(1/1000초)
+  refresh-expiration-time: 1209600000 #14일(1/1000초)
+  token-prefix: 'Bearer '
+  headerString: Authorization
+  refresh-header-string: X-Refresh-Token
+
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
