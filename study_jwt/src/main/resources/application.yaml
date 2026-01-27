@@ -11,8 +11,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/jwt?serverTimezone=Asia/Seoul
-    username: study
-    password: 950728
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:
@@ -22,7 +22,7 @@ spring:
     show-sql: true
 
 jwt:
-  secret: 비밀! #${JWT_SECRET}
+  secret: ${JWT_SECRET}
   expiration-time: 300000 #5분(1/1000초)
   refresh-expiration-time: 1209600000 #14일(1/1000초)
   token-prefix: 'Bearer '
