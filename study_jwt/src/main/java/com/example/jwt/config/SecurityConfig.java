@@ -64,7 +64,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        // https://naver.me/52cNoh7y 참고
+        // https://naver.me/GagEOos3 참고
         configuration.setAllowCredentials(true);
         configuration.addAllowedOrigin("*");
         configuration.addAllowedHeader("*");
