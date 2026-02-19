@@ -41,7 +41,10 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable()) // https://naver.me/FnVEF2qk 참고
 
-            // https://naver.me/xxFbF7o2 참고
+            /*
+                https://naver.me/xxFbF7o2 참고
+                ※formLogin, httpBasic 상세 설명 : https://naver.me/GXFM29Fx 참고
+            */
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Security가 세션을 사용하지 않도록 하는 것일 뿐, 세션 자체를 사용 못 하는 것은 아니다.
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable())
